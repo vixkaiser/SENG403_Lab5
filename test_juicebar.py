@@ -28,8 +28,7 @@ def test_team_big_order():
 
 
 def test_team_member_order():
-    price = order_price(3, "S", member=True)
-    print("member price:", price)
+    assert order_price(3, "S", member=True) == 105
 
 
 # ---------------------------------------------------------------------------
@@ -65,3 +64,12 @@ def test_invalid_qty():
 
 def test_coupon_discount():
     assert order_price(2, "S", coupon=True) == 72
+
+def test_min_qty():
+    assert order_price(1, "S") == 40
+
+def test_max_qty():
+    assert order_price(20, "S") == 750
+
+def test_ten_bottles_discount():
+    assert order_price(10, "S") == 350

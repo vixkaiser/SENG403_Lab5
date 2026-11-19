@@ -22,7 +22,7 @@ def order_price(qty, size, member=False, coupon=False):
     if qty < 1 or qty > 20:
         raise ValueError("quantity must be 1 to 20")
     price = qty * bottle_price(size)
-    if qty > 10:
+    if qty >= 10:
         price = price - BULK_OFF
     if coupon:
         price = price * 90 // 100
