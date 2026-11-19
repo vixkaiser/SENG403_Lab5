@@ -25,7 +25,7 @@ def order_price(qty, size, member=False, coupon=False):
     if qty > 10:
         price = price - BULK_OFF
     if coupon:
-        price = price - 10
+        price = price * 90 // 100
     if member:
         price = price - MEMBER_OFF
     return price

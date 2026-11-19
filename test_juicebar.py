@@ -54,3 +54,14 @@ def test_team_member_order():
 
 def test_large_bottle():
     assert bottle_price("L") == 60
+
+def test_invalid_size():
+    with pytest.raises(ValueError):
+        bottle_price("X")
+
+def test_invalid_qty():
+    with pytest.raises(ValueError):
+        order_price(0, "S")
+
+def test_coupon_discount():
+    assert order_price(2, "S", coupon=True) == 72
