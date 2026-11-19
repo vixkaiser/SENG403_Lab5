@@ -51,3 +51,6 @@ def test_team_member_order():
 # def test_my_error():
 #     with pytest.raises(ValueError):
 #         order_price(..., ...)
+
+def test_large_bottle():
+    assert bottle_price("L") == 60
